@@ -10,8 +10,8 @@ import { ErrorService } from "../errors/error.service";
 export class MessageService {
     private messages: Message[] = [];
     messageIsEdit = new EventEmitter<Message>();
-    // serverAddress = " https://mean-max-angujlar4.herokuapp.com/message";
-    serverAddress = "http://localhost:3000/message";
+    serverAddress = " https://mean-max-angujlar4.herokuapp.com/message";
+    // serverAddress = "http://localhost:3000/message";
 
     constructor(private http: Http, private errorService: ErrorService) {
     }

@@ -8,8 +8,8 @@ import { ErrorService } from "../errors/error.service";
 
 @Injectable()
 export class AuthService {
-    // serverAddress = " https://mean-max-angujlar4.herokuapp.com/user";
-    serverAddress = "http://localhost:3000/user";
+    serverAddress = " https://mean-max-angujlar4.herokuapp.com/user";
+    // serverAddress = "http://localhost:3000/user";
 
     constructor(private http: Http, private errorService: ErrorService) {}
 
