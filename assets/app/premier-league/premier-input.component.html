@@ -1,0 +1,40 @@
+<div class="col-md-8 col-md-offset-2">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group">
+            <label for="content">Home Team</label>
+            <input
+                    type="text"
+                    id="content"
+                    class="form-control"
+                    [ngModel]="post?.home"
+                    name="home"
+                    required>
+            <label for="content">Away Team</label>
+            <input
+                    type="text"
+                    id="content"
+                    class="form-control"
+                    [ngModel]="post?.away"
+                    name="away"
+                    required>
+            <label for="content">homeGoals</label>
+            <input
+                    type="number"
+                    id="content"
+                    class="form-control"
+                    [ngModel]="post?.goalsHome"
+                    name="goalsHome"
+                    required>
+            <label for="content">awayGoals</label>
+            <input
+                    type="number"
+                    id="content"
+                    class="form-control"
+                    [ngModel]="post?.goalsAway"
+                    name="goalsAway"
+                    required>
+        </div>
+        <button type="button" class="btn btn-danger" (click)="onClear(f)">Clear</button>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+</div>

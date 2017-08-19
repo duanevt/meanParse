@@ -1,0 +1,1 @@
+{"functionName":"hello","params":{},"level":"info","message":"Ran cloud function hello for user undefined with:\n  Input: {}\n  Result: \"world\"","timestamp":"2017-07-17T09:24:53.512Z"}

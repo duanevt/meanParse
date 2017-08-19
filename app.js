@@ -6,11 +6,35 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+var ParseServer = require('parse-server').ParseServer;
+
 var appRoutes = require('./routes/app');
 var messageRoutes = require('./routes/messages');
 var userRoutes = require('./routes/user');
+var dvtRoutes = require('./routes/dvt');
+var postRoutes = require('./routes/posts');
 
-var databaseUri = process.env.MONGODB_URI || 'localhost:27017/node-angular'; 
+// var databaseUri = process.env.MONGODB_URI || 'localhost:27017/node-angular';
+var databaseUri = process.env.MONGODB_URI || 'localhost:27017/dev';
+
+if (!databaseUri) {
+	console.log('DATABASE_URI not specified, falling back to localhost.');
+}
+
+var parseDatabaseUri = null;
+var api = new ParseServer({
+	//**** General Settings ****//
+
+	databaseURI: parseDatabaseUri || 'mongodb://localhost:27017/dev',
+	cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
+	serverURL: process.env.SERVER_URL || 'http://localhost:3000/parse',  // Don't forget to change to https if needed
+
+	//**** Security Settings ****//
+	// allowClientClassCreation: process.env.CLIENT_CLASS_CREATION || false,
+	appId: process.env.APP_ID || 'myAppId',
+	masterKey: process.env.MASTER_KEY || 'myMasterKey', //Add your master key here. Keep it secret!
+
+});
 
 var app = express();
 mongoose.connect(databaseUri);
@@ -34,8 +58,15 @@ app.use(function (req, res, next) {
     next();
 });
 
+// Serve the Parse API on the /parse URL prefix
+var mountPath = process.env.PARSE_MOUNT || '/parse';
+app.use(mountPath, api);
+
+
 app.use('/message', messageRoutes);
+app.use('/post', postRoutes);
 app.use('/user', userRoutes);
+app.use('/dvt', dvtRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler

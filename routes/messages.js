@@ -16,6 +16,8 @@ router.get('/', function (req, res, next) {
                     error: err
                 });
             }
+            console.log("this should be all he messages")
+            console.log(messages)
             res.status(200).json({
                 message: 'Success',
                 obj: messages

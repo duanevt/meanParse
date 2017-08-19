@@ -1,0 +1,4 @@
+{"error":{"code":111,"message":"schema mismatch for Post.conquered; expected String but got Number"},"level":"error","message":"Error generating response. ParseError {\n  code: 111,\n  message: 'schema mismatch for Post.conquered; expected String but got Number' }","timestamp":"2017-08-07T23:11:38.402Z"}
+{"code":111,"message":"schema mismatch for Post.conquered; expected String but got Number","level":"error","timestamp":"2017-08-07T23:11:38.409Z"}
+{"error":{"code":111,"message":"schema mismatch for Post.conquered; expected String but got Number"},"level":"error","message":"Error generating response. ParseError {\n  code: 111,\n  message: 'schema mismatch for Post.conquered; expected String but got Number' }","timestamp":"2017-08-07T23:12:10.233Z"}
+{"code":111,"message":"schema mismatch for Post.conquered; expected String but got Number","level":"error","timestamp":"2017-08-07T23:12:10.235Z"}

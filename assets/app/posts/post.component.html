@@ -1,0 +1,14 @@
+<article class="panel panel-default">
+    <div class="panel-body">
+        {{ post | json }}
+    </div>
+    <footer class="panel-footer">
+        <div class="author">
+            {{ post.conquered }}
+        </div>
+        <div class="config" *ngIf="belongsToUser()">
+            <a (click)="onEdit()">Edit</a>
+            <a (click)="onDelete()">Delete</a>
+        </div>
+    </footer>
+</article>
